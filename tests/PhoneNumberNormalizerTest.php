@@ -19,6 +19,8 @@ class PhoneNumberNormalizerTest extends TestCase
 {
     public function testNormalizePhoneNumbers(): void
     {
+        $this->assertNull(PhoneNumberNormalizer::format(null));
+        $this->assertSame('', PhoneNumberNormalizer::format(''));
         $this->assertSame('040 / 1234567', PhoneNumberNormalizer::format('1234567'));
         $this->assertSame('040 / 1234567', PhoneNumberNormalizer::format('0401234567'));
         $this->assertSame('040 / 1234567', PhoneNumberNormalizer::format('040-1234567'));
