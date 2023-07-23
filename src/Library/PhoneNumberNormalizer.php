@@ -35,10 +35,10 @@ class PhoneNumberNormalizer
     /**
      * formating the given phone number.
      *
-     * @param mixed         $phoneNumber
+     * @param mixed|null    $phoneNumber
      * @param DataContainer $dc
      *
-     * @return string normalized phone number
+     * @return string|null normalized phone number
      */
     public static function format($phoneNumber, DataContainer $dc = null)
     {
