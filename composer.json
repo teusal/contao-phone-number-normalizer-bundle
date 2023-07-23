@@ -1,6 +1,11 @@
 {
     "name": "teusal/contao-phone-number-normalizer-bundle",
     "description": "A bundle to normalize phone numbers to a uniform format.",
+    "keywords": [
+        "contao",
+        "phone number",
+        "normalize"
+    ],
     "license": "LGPL-3.0-or-later",
     "type": "contao-bundle",
     "authors": [
