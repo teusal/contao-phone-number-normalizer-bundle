@@ -42,7 +42,7 @@ class PhoneNumberNormalizer
      */
     public static function format($phoneNumber, DataContainer $dc = null)
     {
-        if(empty($phoneNumber)) {
+        if (empty($phoneNumber)) {
             return $phoneNumber;
         }
 
