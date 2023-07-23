@@ -35,13 +35,17 @@ class PhoneNumberNormalizer
     /**
      * formating the given phone number.
      *
-     * @param mixed         $strNummer
+     * @param mixed         $phoneNumber
      * @param DataContainer $dc
      *
      * @return string normalized phone number
      */
-    public static function format($strNummer, DataContainer $dc = null)
+    public static function format($phoneNumber, DataContainer $dc = null)
     {
+        if(empty($phoneNumber)) {
+            return $phoneNumber;
+        }
+
         $ownCountryCode = Config::get('phone_number_normalizer_your_country_code');
         $defaultAreaCode = Config::get('phone_number_normalizer_default_area_code');
 
@@ -53,7 +57,7 @@ class PhoneNumberNormalizer
             $defaultAreaCode = self::DEFAULT_AREA_CODE;
         }
 
-        $normalized = trim($strNummer);
+        $normalized = trim($phoneNumber);
 
         // replace + by 0
         $normalized = preg_replace('/^\\++/', '00', $normalized);
@@ -64,7 +68,7 @@ class PhoneNumberNormalizer
 
         // if it is a non german number, the original format is kept
         if (preg_match('/^00/', $normalized)) {
-            return $strNummer;
+            return $phoneNumber;
         }
 
         // Fill numbers without area code with the default
